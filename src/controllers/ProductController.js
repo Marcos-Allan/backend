@@ -9,7 +9,7 @@ exports.create = async (req, res) => {
         const product = new Product({
             price,
             descont,
-            image: file ? 'http://localhost:3000/'+file.path : image
+            image: file ? process.env.SERVER_URL+'/'+file.path : image
         })
 
         await product.save()
