@@ -7,8 +7,8 @@
     "node": "18.x"
   },
   "scripts": {
-    "start": "node src/app.js",
-    "dev": "nodemon src/app.js localhost 3000"
+    "start": "node index.js",
+    "dev": "nodemon index.js localhost 3000"
   },
   "keywords": [],
   "author": "",
