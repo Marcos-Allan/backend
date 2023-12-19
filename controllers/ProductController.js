@@ -9,7 +9,7 @@ exports.create = async (req, res) => {
         const product = new Product({
             price,
             descont,
-            image: file ? process.env.SERVER_URL+'/'+file.path : image
+            image: file ? 'https://techstore-backend.vercel.app/'+file.path : image
         })
 
         await product.save()

@@ -5,7 +5,8 @@ require('dotenv').config()
 passport.use(new GoogleStrategy({
     clientID:     process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: process.env.SERVER_URL+"/auth/google/callback",
+    callbackURL: "https://techstore-backend.vercel.app/auth/google/callback",
+    // callbackURL: process.env.SERVER_URL+"/auth/google/callback",
     //A PORTA DELE ESTÁ RODANDO NA 5000 SE NÃO FUNCIONAR TROCAR PARA 3000
     passReqToCallback   : true
   },
