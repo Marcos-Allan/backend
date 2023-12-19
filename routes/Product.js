@@ -5,6 +5,8 @@ const upload = require('../config/multer')
 
 const ProductController = require('../controllers/ProductController')
 
+router.get('/', ProductController.message)
+
 router.get('/products', ProductController.getAll)
 router.get('/product/:id', ProductController.getOne)
 

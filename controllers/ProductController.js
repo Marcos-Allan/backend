@@ -32,6 +32,10 @@ exports.getOne = async (req, res) => {
     res.send(products)
 }
 
+exports.message = async (req, res) => {
+    res.send('ROTA CONSUMIDA')
+}
+
 exports.update = async (req, res) => {
     const id = req.params.id
     const product = await Product.findByIdAndUpdate(id, {
