@@ -1,1 +1,8 @@
+<<<<<<< HEAD
 *.env
+=======
+
+backend/.env
+.env
+.env
+>>>>>>> parent of ebf5d53 (remoção de endpoints inuteis)
