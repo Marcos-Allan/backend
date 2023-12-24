@@ -9,7 +9,7 @@ exports.create = async (req, res) => {
         const product = new Product({
             price,
             descont,
-            image: file ? 'https://techstore-backend.onrender.com/'+file.path : image
+            image: file ? process.env.SERVER_URL+'/'+file.path : image
         })
 
         await product.save()
@@ -33,7 +33,7 @@ exports.getOne = async (req, res) => {
 }
 
 exports.message = async (req, res) => {
-    res.send('ROTA CONSUMIDA ATUALIZADA')
+    res.send('ROTA CONSUMIDA')
 }
 
 exports.update = async (req, res) => {

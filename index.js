@@ -11,7 +11,7 @@ require('./auth')
 const port = process.env.PORT || 3000
 app.use(express.json())
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: process.env.CLIENT_URL,
     credentials: true,
     methods: 'GET,POST,PUT,DELETE'
 }))
@@ -61,13 +61,13 @@ app.get('/auth/protected', isLoggeIn, (req, res) => {
         { maxAge: 3600000, httpOnly: false, secure: false }
     )
     console.log(user)
-    res.redirect('http://localhost:5173'+'/');
+    res.redirect(process.env.CLIENT_URL+'/');
 })
 
 app.use('/auth/logout', (req, res) => {
     req.session.destroy()
     res.clearCookie('zUser')
-    res.redirect('http://localhost:5173'+'/');;
+    res.redirect(process.env.CLIENT_URL+'/');;
 })
 // FIM PASSPORT OAUTH GOOGLE
 
