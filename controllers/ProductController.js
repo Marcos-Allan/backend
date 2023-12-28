@@ -57,9 +57,7 @@ exports.getPage = async (req, res) => {
     const page = req.query.page || 1
     const limit = 4
     
-    const products = await Product.find()
-    .skip((page - 1) * limit)
-    .limit(limit)
+    const products = await Product.find().skip((page - 1) * limit).limit(limit)
     res.send(products)
 }
 
