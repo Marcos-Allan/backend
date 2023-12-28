@@ -9,6 +9,7 @@ router.get('/', ProductController.message)
 
 router.get('/products', ProductController.getAll)
 router.get('/product/:id', ProductController.getOne)
+router.get('/product',ProductController.getPage)
 
 router.post('/create', upload.single('file'), ProductController.create)
 

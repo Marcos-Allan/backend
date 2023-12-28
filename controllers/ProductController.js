@@ -52,4 +52,19 @@ exports.delete = async (req, res) => {
     res.send(product)   
 }
 
+exports.getPage = async (req, res) => {
+    const page = req.query.page || 1
+    const limit = 4
+
+    try {
+     const products = await Product.find()
+        .skip((page - 1) * limit)
+        .limit(limit)
+        res.send(products)
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({ error: 'Erro ao buscar produtospor página' })
+    }
+}
+
 exports.getOne
