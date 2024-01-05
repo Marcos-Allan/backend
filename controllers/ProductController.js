@@ -2,19 +2,21 @@ const Product = require('../models/Product')
 
 exports.create = async (req, res) => {
     try {
-        const { price, descont, image } = req.body
+        const { price, descont, image, description, stars } = req.body
 
         const file = req.file;
 
         const product = new Product({
             price,
             descont,
+            description,
+            stars,
             image: file ? process.env.SERVER_URL+'/'+file.path : image
         })
 
         await product.save()
 
-        res.json({ product, msg: 'Imagem do Produto salva' })
+        res.json({ product, msg: 'Produto cadastrado com sucesso!' })
 
     } catch (error) {
         res.status(500).send(error)
