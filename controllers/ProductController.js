@@ -43,7 +43,9 @@ exports.update = async (req, res) => {
     const product = await Product.findByIdAndUpdate(id, {
       image: req.body.image,
       price: req.body.price,
-      descont: req.body.descont
+      descont: req.body.descont,
+      description: req.body.description,
+      stars: req.body.stars
     })
     res.send(product)   
 }
