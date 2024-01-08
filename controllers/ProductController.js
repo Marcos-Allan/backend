@@ -2,7 +2,8 @@ const Product = require('../models/Product')
 
 exports.create = async (req, res) => {
     try {
-        const { price, descont, description, stars, image } = req.body
+        const { price, descont, description, stars, image,
+        keywords } = req.body
 
         const file = req.file;
 
@@ -11,6 +12,7 @@ exports.create = async (req, res) => {
             descont,
             description,
             stars,
+            keywords,
             image: file ? process.env.SERVER_URL+'/'+file.path : image
         })
 
@@ -45,7 +47,8 @@ exports.update = async (req, res) => {
       price: req.body.price,
       descont: req.body.descont,
       description: req.body.description,
-      stars: req.body.stars
+      stars: req.body.stars,
+      keywords: req.body.keywords,
     })
     res.send(product)   
 }

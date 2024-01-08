@@ -5,7 +5,8 @@ const Product = mongoose.model('Product', {
     descont: String,
     description: String,
     stars: String,
-    image: String
+    image: String,
+    keywords: [String],
 })
 
 module.exports =  Product
