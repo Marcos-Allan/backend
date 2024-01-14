@@ -34,6 +34,12 @@ wss.on('connection', (ws) => {
     ws.on('close', () => {
       console.log('WebSocket disconnected');
     });
+
+    // Enviar mensagem para o cliente após algum evento no servidor
+    // Exemplo: enviar uma mensagem após 5 segundos
+    setTimeout(() => {
+      ws.send('Mensagem do servidor para o cliente');
+    }, 5000);
   });
 
 server.listen(port, () => {
