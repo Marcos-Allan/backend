@@ -21,25 +21,21 @@ app.use('/uploads', express.static('uploads'))
 
 // Lógica WebSocket
 wss.on('connection', (ws) => {
-    console.log('WebSocket connected');
-  
+    console.log('conectado');
+
     // Evento de mensagem WebSocket
     ws.on('message', (message) => {
-      console.log(`WebSocket message received: ${message}`);
-  
-      // Lógica adicional para manipular a mensagem WebSocket, se necessário
+      console.log(`WebSocket mensagem recebida: ${message}`);
+      wss.clients.forEach((client) => client.send(message))
     });
   
     // Evento de fechamento WebSocket
     ws.on('close', () => {
-      console.log('WebSocket disconnected');
+      console.log('disconectado');
     });
 
     // Enviar mensagem para o cliente após algum evento no servidor
-    // Exemplo: enviar uma mensagem após 5 segundos
-    setTimeout(() => {
-      ws.send('Mensagem do servidor para o cliente');
-    }, 5000);
+    // ws.send('Mensagem do servidor para o cliente');
   });
 
 server.listen(port, () => {
